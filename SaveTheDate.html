@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Save the Date</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&family=Allura&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* FULL background */
+    .page-bg {
+      position: fixed;
+      inset: 0;
+      background: url("bg-v2.png") no-repeat center center / cover;
+      z-index: -1;
+    }
+
+    .card {
+      background: #fff;
+      width: 900px;
+      max-width: 95vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content {
+      padding: 50px 45px;
+      text-align: center;
+    }
+
+    .small-title {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #777;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #999;
+      margin-top: 6px;
+      margin-bottom: 20px;
+    }
+
+    .names {
+      font-family: 'Allura', cursive;
+      font-size: 52px;
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    .month {
+      font-size: 15px;
+      letter-spacing: 2px;
+      margin: 30px 0 20px;
+      color: #444;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 12px;
+      font-size: 13px;
+      color: #555;
+    }
+
+    .calendar .day-name {
+      font-weight: 500;
+      color: #999;
+    }
+
+    .calendar div {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* HEART WITH NUMBER INSIDE */
+    .calendar .heart {
+      width: 46px;
+      height: 42px;
+      background: url("heart-nobg.png") no-repeat center / contain;
+      font-weight: 500;
+      color: #222;
+    }
+
+    .calendar .heart span {
+      position: relative;
+      top: 2px;
+      font-size: 13px;
+    }
+
+    .audio-btn {
+      margin-top: 32px;
+      padding: 12px 26px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 1px solid #ccc;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .audio-btn:hover {
+      background: #222;
+      color: #fff;
+      border-color: #222;
+    }
+
+    .footer {
+      margin-top: 28px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #999;
+    }
+
+    /* 📱 MOBILE IMPROVEMENTS */
+    @media (max-width: 768px) {
+      body {
+        padding: 0;
+      }
+
+      .card {
+        grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .card-content {
+        padding: 36px 24px;
+      }
+
+      .small-title {
+        font-size: 14px;
+      }
+
+      .subtitle {
+        font-size: 13px;
+      }
+
+      .names {
+        font-size: 46px;
+      }
+
+      .month {
+        font-size: 16px;
+      }
+
+      .calendar {
+        gap: 14px;
+        font-size: 14px;
+      }
+
+      .calendar div {
+        height: 38px;
+      }
+
+      .calendar .heart {
+        width: 44px;
+        height: 40px;
+      }
+
+      .calendar .heart span {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-bg"></div>
+
+  <div class="card">
+    <!-- LEFT IMAGE -->
+    <div class="card-image">
+      <img src="gabs_std.jpeg" alt="Couple Photo">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="card-content">
+      <div class="small-title">Save the Date</div>
+      <div class="subtitle">For the wedding of</div>
+
+      <div class="names">
+        Gabby + Deon
+      </div>
+
+      <div class="month">September 2026</div>
+
+      <div class="calendar">
+        <div class="day-name">S</div>
+        <div class="day-name">M</div>
+        <div class="day-name">T</div>
+        <div class="day-name">W</div>
+        <div class="day-name">T</div>
+        <div class="day-name">F</div>
+        <div class="day-name">S</div>
+
+        <div></div><div></div>
+        <div>1</div><div>2</div><div>3</div><div>4</div>
+        <div>5</div><div>6</div><div>7</div><div>8</div>
+        <div>9</div><div>10</div><div>11</div>
+        <div>12</div><div>13</div><div>14</div><div>15</div>
+        <div>16</div><div>17</div>
+        <div class="heart"><span>18</span></div>
+        <div>19</div><div>20</div><div>21</div><div>22</div>
+        <div>23</div><div>24</div><div>25</div>
+        <div>26</div><div>27</div><div>28</div><div>29</div>
+        <div>30</div>
+      </div>
+
+      <button class="audio-btn" onclick="document.getElementById('audio').play()">
+        Click Me
+      </button>
+
+      <audio id="audio" src="vn.ogg"></audio>
+
+      <div class="footer">
+        Formal Invitation to Follow
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
