@@ -206,8 +206,22 @@
       border-top: 1px solid var(--color-border);
     }
 
-    .location-section p {
-      color: #333333;
+    .location-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+      max-width: 1300px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .location-card {
+      width: 100%;
+    }
+
+    .location-card h2 {
+      color: var(--color-beige);
+      margin-bottom: 1.5rem;
     }
 
     .location-section iframe {
@@ -223,7 +237,6 @@
       border-radius: 12px;
       overflow: hidden;
       width: 100%;
-      max-width: 600px;
       margin: 0 auto;
       border: 1px solid var(--color-border);
       background: var(--color-white);
@@ -310,6 +323,12 @@
       100% { transform: rotate(360deg); }
     }
 
+    @media (max-width: 900px) {
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 768px) {
       .header {
         padding: 14rem 1rem;
@@ -366,6 +385,10 @@
       #countdown {
         font-size: 1.3rem;
       }
+
+      .location-section iframe {
+        height: 400px;
+      }
     }
   </style>
 </head>
@@ -379,7 +402,7 @@
     <h1>JY WORD HARTLIK UITGENOOI NA DIE BRUILOF VAN</h1>
     <div class="names">
       <h2>Deon</h2>
-      <h4>VanDeventer</h4>
+      <h4>Van Deventer</h4>
       <div class="ampersand">&amp;</div>
       <h2>Gabby</h2>
       <h4>Volbrecht</h4>
@@ -398,10 +421,8 @@
 
   <section id="weddingCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
+      
       <div class="carousel-item active">
-        <img src="1.jpeg" class="d-block w-100" alt="Wedding Photo 1">
-      </div>
-      <div class="carousel-item">
         <img src="2.jpeg" class="d-block w-100" alt="Wedding Photo 2">
       </div>
       <div class="carousel-item">
@@ -437,54 +458,56 @@
     <p>MEYERTON</p>
   </section>
 
-  <section id="kerk-section" class="location-section">
-    <h2>KERK</h2>
+  <section class="location-section">
+    <div class="location-grid">
+      <div class="location-card" id="kerk-section">
+        <h2>KERK</h2>
+        <div class="map-container">
+          <div id="kerk-map-loading" class="map-loading">
+            <div class="spinner"></div>
+            Laai kaart...
+          </div>
 
-    <div class="map-container">
-      <div id="kerk-map-loading" class="map-loading">
-        <div class="spinner"></div>
-        Laai kaart...
+          <iframe
+            id="kerk-map-iframe"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4389.203066788998!2d27.998241587306126!3d-26.613293620996373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e94f9943b763bef%3A0x32eff8bde866bc68!2sLion&#39;s%20Creek!5e1!3m2!1sen!2sza!4v1748439799165!5m2!1sen!2sza"
+            width="600"
+            height="450"
+            style="border:0; width:100%; height:500px; display:block;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+
+          <div id="kerk-map-error" class="map-error">
+            Kon nie kaart laai nie.<br>Probeer asseblief weer.
+          </div>
+        </div>
       </div>
 
-      <iframe
-        id="kerk-map-iframe"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4389.203066788998!2d27.998241587306126!3d-26.613293620996373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e94f9943b763bef%3A0x32eff8bde866bc68!2sLion&#39;s%20Creek!5e1!3m2!1sen!2sza!4v1748439799165!5m2!1sen!2sza"
-        width="600"
-        height="450"
-        style="border:0; width:100%; height:450px; display:block;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+      <div class="location-card" id="venue-section">
+        <h2>TROU VENUE</h2>
+        <div class="map-container">
+          <div id="venue-map-loading" class="map-loading">
+            <div class="spinner"></div>
+            Laai kaart...
+          </div>
 
-      <div id="kerk-map-error" class="map-error">
-        Kon nie kaart laai nie.<br>Probeer asseblief weer.
-      </div>
-    </div>
-  </section>
+          <iframe
+            id="venue-map-iframe"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4389.203066788998!2d27.998241587306126!3d-26.613293620996373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e94f9943b763bef%3A0x32eff8bde866bc68!2sLion&#39;s%20Creek!5e1!3m2!1sen!2sza!4v1748439799165!5m2!1sen!2sza"
+            width="600"
+            height="450"
+            style="border:0; width:100%; height:500px; display:block;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
 
-  <section id="venue-section" class="location-section">
-    <h2>TROU VENUE</h2>
-
-    <div class="map-container">
-      <div id="venue-map-loading" class="map-loading">
-        <div class="spinner"></div>
-        Laai kaart...
-      </div>
-
-      <iframe
-        id="venue-map-iframe"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4389.203066788998!2d27.998241587306126!3d-26.613293620996373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e94f9943b763bef%3A0x32eff8bde866bc68!2sLion&#39;s%20Creek!5e1!3m2!1sen!2sza!4v1748439799165!5m2!1sen!2sza"
-        width="600"
-        height="450"
-        style="border:0; width:100%; height:450px; display:block;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-
-      <div id="venue-map-error" class="map-error">
-        Kon nie kaart laai nie.<br>Probeer asseblief weer.
+          <div id="venue-map-error" class="map-error">
+            Kon nie kaart laai nie.<br>Probeer asseblief weer.
+          </div>
+        </div>
       </div>
     </div>
   </section>
